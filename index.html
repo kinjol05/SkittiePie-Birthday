@@ -1,0 +1,481 @@
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Happy 21st Birthday Skittie Pie 💗</title>
+
+<style>
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    min-height: 100vh;
+    overflow-x: hidden;
+    font-family: Georgia, serif;
+    background: linear-gradient(135deg, #ff758c, #ff7eb3, #c471ed);
+    color: white;
+    text-align: center;
+}
+
+/* Animated background */
+
+.background {
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    z-index: -1;
+}
+
+.heart {
+    position: absolute;
+    bottom: -50px;
+    font-size: 25px;
+    animation: floatHeart linear infinite;
+    opacity: 0.7;
+}
+
+@keyframes floatHeart {
+
+    0% {
+        transform: translateY(0) rotate(0deg);
+        opacity: 0;
+    }
+
+    20% {
+        opacity: 1;
+    }
+
+    100% {
+        transform: translateY(-110vh) rotate(360deg);
+        opacity: 0;
+    }
+}
+
+/* Main container */
+
+.container {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 30px;
+}
+
+/* Heading */
+
+h1 {
+    font-size: 55px;
+    margin-bottom: 10px;
+    animation: titleAnimation 2s infinite alternate;
+    text-shadow: 0 0 20px rgba(255,255,255,0.8);
+}
+
+@keyframes titleAnimation {
+
+    from {
+        transform: scale(1);
+    }
+
+    to {
+        transform: scale(1.05);
+    }
+}
+
+.subtitle {
+    font-size: 24px;
+    margin-bottom: 35px;
+}
+
+/* Cake */
+
+.cake {
+    position: relative;
+    width: 220px;
+    height: 140px;
+    margin: 30px auto;
+}
+
+.cake-top {
+    position: absolute;
+    width: 220px;
+    height: 70px;
+    background: #ffb6c1;
+    border-radius: 20px 20px 10px 10px;
+    bottom: 0;
+    left: 0;
+    box-shadow: 0 10px 20px rgba(0,0,0,0.2);
+}
+
+.cake-bottom {
+    position: absolute;
+    width: 190px;
+    height: 50px;
+    background: #ff69b4;
+    bottom: 50px;
+    left: 15px;
+    border-radius: 15px;
+}
+
+.candle {
+    position: absolute;
+    width: 18px;
+    height: 60px;
+    background: white;
+    bottom: 70px;
+    left: 101px;
+    border-radius: 5px;
+}
+
+.flame {
+    position: absolute;
+    width: 22px;
+    height: 32px;
+    background: orange;
+    border-radius: 50% 50% 50% 0;
+    transform: rotate(-45deg);
+    bottom: 127px;
+    left: 99px;
+    box-shadow: 0 0 20px yellow;
+    animation: flameMove 0.5s infinite alternate;
+}
+
+@keyframes flameMove {
+
+    from {
+        transform: rotate(-45deg) scale(1);
+    }
+
+    to {
+        transform: rotate(-45deg) scale(1.15);
+    }
+}
+
+/* Buttons */
+
+button {
+    padding: 15px 30px;
+    border: none;
+    border-radius: 30px;
+    font-size: 18px;
+    font-weight: bold;
+    cursor: pointer;
+    margin: 10px;
+    color: #ff4f81;
+    background: white;
+    box-shadow: 0 8px 20px rgba(0,0,0,0.2);
+    transition: 0.3s;
+}
+
+button:hover {
+    transform: scale(1.1);
+    box-shadow: 0 0 25px white;
+}
+
+/* Birthday message */
+
+.surprise {
+    display: none;
+    margin-top: 30px;
+    max-width: 750px;
+    animation: surpriseAppear 1.5s ease;
+}
+
+@keyframes surpriseAppear {
+
+    from {
+        opacity: 0;
+        transform: translateY(50px) scale(0.8);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0) scale(1);
+    }
+}
+
+.message {
+    background: rgba(255,255,255,0.18);
+    padding: 35px;
+    border-radius: 30px;
+    backdrop-filter: blur(10px);
+    box-shadow: 0 0 30px rgba(255,255,255,0.3);
+}
+
+.message h2 {
+    font-size: 38px;
+    margin-bottom: 20px;
+}
+
+.message p {
+    font-size: 20px;
+    line-height: 1.8;
+}
+
+/* Photo */
+
+.photo {
+    width: 250px;
+    height: 250px;
+    object-fit: cover;
+    border-radius: 50%;
+    border: 6px solid white;
+    margin-bottom: 25px;
+    box-shadow: 0 0 30px rgba(255,255,255,0.7);
+    animation: photoFloat 3s ease-in-out infinite;
+}
+
+@keyframes photoFloat {
+
+    0%,100% {
+        transform: translateY(0) rotate(-2deg);
+    }
+
+    50% {
+        transform: translateY(-15px) rotate(2deg);
+    }
+}
+
+/* Crackers */
+
+.cracker {
+    position: fixed;
+    font-size: 50px;
+    animation: explode 1.5s forwards;
+    pointer-events: none;
+}
+
+@keyframes explode {
+
+    0% {
+        transform: scale(0);
+        opacity: 1;
+    }
+
+    50% {
+        transform: scale(2);
+        opacity: 1;
+    }
+
+    100% {
+        transform: scale(5) rotate(180deg);
+        opacity: 0;
+    }
+}
+
+/* Mobile */
+
+@media(max-width:600px) {
+
+    h1 {
+        font-size: 38px;
+    }
+
+    .subtitle {
+        font-size: 19px;
+    }
+
+    .message p {
+        font-size: 17px;
+    }
+
+}
+
+</style>
+
+</head>
+
+<body>
+
+<div class="background" id="background"></div>
+
+<div class="container">
+
+```
+<h1>🎂 Happy 21st Birthday 🎂</h1>
+
+<div class="subtitle">
+    To my wonderful Skittie Pie 💗
+</div>
+
+
+<!-- CAKE -->
+
+<div class="cake">
+
+    <div class="cake-bottom"></div>
+
+    <div class="cake-top"></div>
+
+    <div class="candle"></div>
+
+    <div class="flame" id="flame"></div>
+
+</div>
+
+
+<button onclick="blowCandle()">
+    💨 Blow the Candle
+</button>
+
+
+<button onclick="showSurprise()">
+    🎁 Surprise for You
+</button>
+
+
+<!-- SURPRISE -->
+
+<div class="surprise" id="surprise">
+
+    <img src="photo.jpg" class="photo">
+
+    <div class="message">
+
+        <h2>💗 Dear Skittie Pie 💗</h2>
+
+        <p>
+            Happy 21st Birthday to one of the most
+            wonderful people in my life! 🥹💗
+            <br><br>
+
+            Today isn't just another birthday.
+            It's a celebration of YOU.
+            ✨
+            <br><br>
+
+            Thank you for all the laughs,
+            all the crazy moments,
+            all the memories,
+            and simply for being there.
+            💕
+            <br><br>
+
+            I hope this new chapter of your life
+            brings you endless happiness,
+            beautiful memories and everything
+            your heart wishes for.
+            🌸✨
+            <br><br>
+
+            Keep smiling, keep shining,
+            and never stop being the amazing
+            person you are.
+            💖
+            <br><br>
+
+            Happy 21st Birthday,
+            <b>Skittie Pie! 🎂👑💗</b>
+        </p>
+
+    </div>
+
+</div>
+```
+
+</div>
+
+<script>
+
+/* Floating hearts */
+
+function createHeart() {
+
+    const heart = document.createElement("div");
+
+    heart.className = "heart";
+
+    heart.innerHTML = "💗";
+
+    heart.style.left = Math.random() * 100 + "%";
+
+    heart.style.animationDuration =
+        (5 + Math.random() * 5) + "s";
+
+    heart.style.fontSize =
+        (15 + Math.random() * 25) + "px";
+
+    document.getElementById("background")
+        .appendChild(heart);
+
+    setTimeout(() => {
+        heart.remove();
+    }, 10000);
+}
+
+setInterval(createHeart, 500);
+
+
+/* Blow candle */
+
+function blowCandle() {
+
+    const flame = document.getElementById("flame");
+
+    flame.style.display = "none";
+
+    createCrackers();
+
+}
+
+
+/* Crackers */
+
+function createCrackers() {
+
+    for(let i = 0; i < 30; i++) {
+
+        const cracker = document.createElement("div");
+
+        cracker.className = "cracker";
+
+        cracker.innerHTML = "🎉";
+
+        cracker.style.left =
+            Math.random() * 100 + "%";
+
+        cracker.style.top =
+            Math.random() * 70 + "%";
+
+        cracker.style.animationDelay =
+            Math.random() * 0.5 + "s";
+
+        document.body.appendChild(cracker);
+
+        setTimeout(() => {
+            cracker.remove();
+        }, 2000);
+    }
+
+}
+
+
+/* Surprise */
+
+function showSurprise() {
+
+    const surprise =
+        document.getElementById("surprise");
+
+    surprise.style.display = "block";
+
+    surprise.scrollIntoView({
+        behavior: "smooth"
+    });
+
+    createCrackers();
+
+}
+
+</script>
+
+</body>
+</html>
